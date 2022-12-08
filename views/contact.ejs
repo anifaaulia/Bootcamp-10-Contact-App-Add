@@ -1,0 +1,46 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Daftar Contact</h2>
+
+      <!-- tabel daftar kontak-->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <!--alert akan tampil jika kondisi data kosong-->
+          <% if (contacts.length === 0) { %>
+            <tr>
+              <td colspan="4">
+                <div class="alert alert-danger fw-bold" role="alert">
+                  Data Contact Kosong
+                </div>
+              </td>
+            </tr>
+            <% } %> 
+      
+            <% contacts.forEach((contact, i) => { i++ %>
+              
+            <!--menampilkan data sesuai dengan function-->
+            <tr>
+            <th scope="row"> <%= i++ %> </th>
+            <td><%= contact.name %></td>
+            <td><%= contact.mobile %></td>
+            <!-- menuju ke halaman detail (card)-->
+            <td> <a href="/contact/<%=contact.name %>" class="badge text-bg-success"><i class="bi bi-info-circle"></i>detail</span></td>
+            </tr>
+            
+            <% }) %>
+          </tbody>
+        </table>
+        <a href="/contact/add" <span class="badge text-bg-primary">Add New Contact</a></span>
+    </div>
+  </div>
+</div>

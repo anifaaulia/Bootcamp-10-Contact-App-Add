@@ -1,0 +1,24 @@
+<div class="container mt-3">
+  <div class="col-md-8">
+    <h2>Detail Contact</h2>
+    
+    <!--menampilkan alert jika data tidak masuk ke dalam daftar kontak-->
+    <% if (!contact) { %>
+    <div class="alert alert-danger fw-bold" role="alert">
+      Data <%= name %> Not Found <br />
+      <a href="/contact" class="alert-link fw-normal" <span class="badge text-bg-primary"></span>&laquo; Back to Contact Page</a>
+    </div>
+    <!--menampilkan data di sebuah card , jika data ada-->
+    <% } else { %>
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title"><%= contact.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= contact.mobile %></h6>
+        <p class="card-text"><%= contact.email %></p>
+      <!--tombol kembali ke halaman contact-->
+        <a href="/contact" class="card-link" <span class="badge text-bg-primary"></span>&laquo; Back to Contact Page</a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
